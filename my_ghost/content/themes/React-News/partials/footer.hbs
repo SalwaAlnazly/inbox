@@ -6,7 +6,7 @@
              <section class="recent-posts">
                  <h3>Recent Posts</h3>
                  <ul>
-                     {{#foreach recent}}
+                     {{#foreach recent}} {{name}}
                      <li>
                          <a herf="{{url}}">{{title}}</a>
                      </li>
@@ -16,7 +16,19 @@
              {{/get}}
            </div>
            <div class="column">
-               <h1 class="title has-text-centered">World</h1>
+              {{#get "tags" limit="10" as |tag|}}
+                 <section>
+                   <h3>Tags</h3>
+                   <ul>
+                       {{#foreach tag}}
+                       <li>
+                           <a href="{{url}}" class="tag">{{name}}</a>
+                       </li>
+                       {{/foreach}}
+                   </ul>
+
+                 </section>
+              {{/get}}
            </div>
        </div>
    </div>
