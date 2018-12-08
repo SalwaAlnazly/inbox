@@ -2,7 +2,18 @@
    <div class="container">
        <div class="columns">
            <div class="column">
-             <h1 class="title has-text-centered">Hello</h1>  
+             {{#get "posts" limit="5" as |recent|}}
+             <section class="recent-posts">
+                 <h3>Recent Posts</h3>
+                 <ul>
+                     {{#foreach recent}}
+                     <li>
+                         <a herf="{{url}}">{{title}}</a>
+                     </li>
+                     {{/foreach}}
+                 </ul>
+             </section> 
+             {{/get}}
            </div>
            <div class="column">
                <h1 class="title has-text-centered">World</h1>
